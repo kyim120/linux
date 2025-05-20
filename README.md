@@ -1,4 +1,3 @@
-
 ### **Comparison Table**
 
 | Feature            | **Shallow Copy**                              | **Deep Copy**                                      | **Dynamic Memory**                         |
@@ -24,7 +23,7 @@
    Dynamic memory allows objects and arrays to allocate memory at runtime, typically using `new` and `delete`. This is useful when the memory requirement isn’t known in advance. Unlike static memory, dynamic memory allocation provides flexibility but must be carefully managed to avoid leaks or dangling pointers.
 
 ---
-Some Code Example
+# Some Code Example
 ---
 
 ### **1. Shallow Copy Code Structure**
