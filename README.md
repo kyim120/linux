@@ -1,138 +1,144 @@
-### **Comparison Table**
+import google.generativeai as genai
+from pathlib import Path
+import shutil
+import time
 
-| Feature            | **Shallow Copy**                              | **Deep Copy**                                      | **Dynamic Memory**                         |
-|-------------------|------------------------------------|--------------------------------------|--------------------------------|
-| **Definition**   | Copies an object including pointer addresses, leading to shared memory. | Creates a new object with its own copy of dynamically allocated memory. | Allocates memory at runtime using pointers. |
-| **Memory Handling** | Does not allocate new memory, shares existing memory. | Allocates separate memory to avoid shared resources. | Uses heap memory allocation. |
-| **Usage** | Default behavior in C++ (copy constructor and assignment). | Requires explicit implementation using copy constructor or assignment operator. | Used for flexible memory allocation. |
-| **Impact on Pointers** | Multiple objects point to the same memory, leading to potential issues. | Each object has an independent copy of memory. | Objects dynamically control memory during runtime. |
-| **Performance** | Faster but riskier (due to shared memory issues). | Slightly slower but safer (avoids memory conflicts). | Flexible allocation but requires careful management. |
-| **Memory Management** | No additional allocation; deletion affects all references. | Memory safely allocated and deallocated per object. | Requires manual `new` and `delete` operations. |
-| **Example** | Default copy constructor, simple structure copying. | User-defined copy constructor for deep duplication. | `new` and `delete` operations for dynamic memory. |
+# --- SETUP ---
 
----
+# Gemini API key (replace with your actual key)
+genai.configure(api_key="AIzaSyBybuAb-cVllI7QrKXGVg8gmADNHIzzqY8")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
-### **Theoretical Explanation**
-1. **Shallow Copy**  
-   Shallow copy occurs when a copy constructor or assignment operator copies pointer addresses instead of duplicating the actual data. This means multiple objects end up sharing the same memory block. If one object modifies or deallocates that memory, other objects using it may encounter undefined behavior.
+# Directories
+base_dir = Path(__file__).resolve().parent
+user_info_dir = base_dir / "user_info"
+outputs_dir = base_dir / "outputs"
+templates_dir = base_dir / "templates"
 
-2. **Deep Copy**  
-   Deep copy explicitly creates new memory for an object's attributes rather than sharing the original memory. This prevents accidental modifications from affecting multiple objects. Deep copying is commonly implemented via a custom copy constructor or overloaded assignment operator.
+# Required files
+info_path = user_info_dir / "info.txt"
+profile_pic_path = user_info_dir / "profile_pic.jpg"
+resume_path = user_info_dir / "resume.pdf"
+template_path = templates_dir / "portfolio_template.html"
 
-3. **Dynamic Memory**  
-   Dynamic memory allows objects and arrays to allocate memory at runtime, typically using `new` and `delete`. This is useful when the memory requirement isn’t known in advance. Unlike static memory, dynamic memory allocation provides flexibility but must be carefully managed to avoid leaks or dangling pointers.
+# --- VALIDATION ---
+for path, desc in [(info_path, "info.txt"), (profile_pic_path, "profile_pic.jpg"), (resume_path, "resume.pdf"), (template_path, "portfolio_template.html")]:
+    if not path.exists():
+        print(f"❌ {desc} not found in expected folder.")
+        exit(1)
 
----
-# Some Code Example
----
+print("✅ All required files found. Generating portfolio...")
 
-### **1. Shallow Copy Code Structure**
-Shallow copy occurs when the default copy constructor or assignment operator copies only pointer addresses rather than duplicating the allocated memory.
+# Read user bio and template
+user_bio = info_path.read_text()
+template_html = template_path.read_text()
 
-```cpp
-class ShallowCopy {
-private:
-    int* data;
+# --- INITIAL PROMPT with TEMPLATE example included ---
+initial_prompt = f"""
+You are a professional front-end engineer and creative designer working at a top AI tech company.
 
-public:
-    // Constructor
-    ShallowCopy(int value) {
-        data = new int(value);
-    }
+Your task is to create a **cutting-edge personal portfolio website** using **only one HTML file** with embedded <style> and <script> sections.
 
-    // Default Copy Constructor (Shallow Copy)
-    ShallowCopy(const ShallowCopy& other) {
-        data = other.data; // Copies pointer, not the actual data
-    }
+## Purpose:
+This site is for a software engineer working in AI and futuristic technology. It should impress recruiters and clients from companies like Google, OpenAI, or Tesla.
 
-    // Destructor
-    ~ShallowCopy() {
-        delete data;
-    }
+## Required Technologies:
+- HTML5
+- CSS3 (embedded in <style>)
+- Vanilla JavaScript (embedded in <script>)
+- No external libraries or dependencies
 
-    void showData() {
-        std::cout << "Data: " << *data << std::endl;
-    }
-};
-```
+## Visual & UI/UX Aesthetic:
+- Dark theme
+- Futuristic or cyberpunk-inspired style
+- Neon-glow or glassmorphism effects
+- Smooth hover animations
+- Micro-interactions
+- Scroll-triggered transitions
+- Vibrant linear gradients and tech-like fonts
+- Soft shadows and rounded components
 
-💡 **Issue:** If one instance deletes the dynamically allocated memory, the other instance is left with a dangling pointer, leading to undefined behavior.
+## Required Sections:
+1. **Hero Section**:
+   - Name and professional title
+   - Call-to-action buttons (e.g., View Resume, Contact)
 
----
+2. **About Me**:
+   - Use profile photo (profile_pic.jpg)
+   - Use user bio from below
 
-### **2. Deep Copy Code Structure**
-Deep copy manually allocates new memory and copies the actual data rather than just copying the pointer.
+3. **Education**:
+   - Institution, degree, years
 
-```cpp
-class DeepCopy {
-private:
-    int* data;
+4. **Skills**:
+   - Grid, badges, or animated progress bars
 
-public:
-    // Constructor
-    DeepCopy(int value) {
-        data = new int(value);
-    }
+5. **Projects**:
+   - Title, description, tech used
+   - Display as cards or modals
 
-    // Deep Copy Constructor
-    DeepCopy(const DeepCopy& other) {
-        data = new int(*other.data); // Allocates new memory and copies data
-    }
+6. **Contact**:
+   - Social links (GitHub, LinkedIn, Twitter)
+   - Use recognizable icons (inline SVGs or CSS)
 
-    // Destructor
-    ~DeepCopy() {
-        delete data;
-    }
+7. **Resume Download**:
+   - Add button to download resume.pdf
 
-    void showData() {
-        std::cout << "Data: " << *data << std::endl;
-    }
-};
-```
+## Important:
+- Keep all code in a single .html file with proper formatting.
+- Do not embed image or PDF content.
+- Use clean, semantic HTML and modern CSS best practices.
+- The website must be fully responsive (mobile, tablet, desktop).
 
-🔹 **Advantage:** Each object manages its own memory, preventing unwanted data corruption.
+## User Bio and Info:
+{user_bio}
 
----
+## Example Template:
+Below is a sample HTML template of the portfolio website I want you to improve upon. Use it as a starting point and generate a complete, responsive, futuristic, dark-themed portfolio website in a single HTML file.
 
-### **3. Dynamic Memory Code Structure**
-Dynamic memory allocation allows flexible memory management using `new` and `delete`.
+--- Start of example template ---
+{template_html}
+--- End of example template ---
 
-```cpp
-class DynamicMemory {
-private:
-    int* data;
+In your next responses, please **do not send the template again**. Instead, use it as the basis for improvements and generate only the updated full HTML code.
+"""
 
-public:
-    // Constructor (Allocates memory dynamically)
-    DynamicMemory(int value) {
-        data = new int(value);
-    }
+# --- CALL GEMINI FOR INITIAL GENERATION ---
+response = model.generate_content(initial_prompt)
+generated_html = response.text.strip()
 
-    // Destructor (Releases allocated memory)
-    ~DynamicMemory() {
-        delete data;
-    }
+# --- ITERATIVE REFINEMENT ---
+for i in range(1, 4):
+    print(f"🔄 Refining iteration {i}...")
+    refinement_prompt = f"""
+Please refine the following portfolio HTML code to make it look even more **modern, professional, clean, and futuristic**.
 
-    void showData() {
-        std::cout << "Data: " << *data << std::endl;
-    }
-};
+### Goals for refinement:
+- Improve layout and spacing
+- Enhance color palette and animations
+- Polish all UI/UX interactions
+- Keep all original sections and functionality
+- Stay within a single HTML file (no external files)
 
-int main() {
-    DynamicMemory obj(100);
-    obj.showData();
+Return ONLY the complete updated HTML code.
 
-    return 0;
-}
-```
+--- Start of HTML Code ---
+{generated_html}
+--- End of HTML Code ---
+"""
+    response = model.generate_content(refinement_prompt)
+    generated_html = response.text.strip()
+    time.sleep(1)  # Respect API limits
 
-⚡ **Key Points:**  
-- **Memory is allocated dynamically** (`new int(value)`).
-- **Destructor ensures memory is properly released** (`delete data`).
+# --- OUTPUT FINAL VERSION ---
+if outputs_dir.exists():
+    shutil.rmtree(outputs_dir)
+outputs_dir.mkdir(parents=True)
 
----
+final_html_path = outputs_dir / "index.html"
+final_html_path.write_text(generated_html, encoding="utf-8")
+shutil.copy(profile_pic_path, outputs_dir / "profile_pic.jpg")
+shutil.copy(resume_path, outputs_dir / "resume.pdf")
 
-### **Conclusion**
-- **Shallow Copy:** Shares memory → Risk of dangling pointers.
-- **Deep Copy:** Allocates new memory → Prevents unintended data modifications.
-- **Dynamic Memory:** Uses heap memory → Offers flexibility but requires careful management.
+print(f"✅ Final refined portfolio saved to: {final_html_path}")
+print("📁 Open outputs/index.html in your browser.")
