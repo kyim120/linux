@@ -1,4 +1,4 @@
-Here's a concise breakdown of **3 to 4 presentation slides** on the **Role of Social Media in Activism** with a focus on **Black Lives Matter (BLM)**, including **key data, insights, and visuals suggestions**:
+
 
 ---
 
@@ -51,4 +51,3 @@ Here's a concise breakdown of **3 to 4 presentation slides** on the **Role of So
 
 ---
 
-Let me know if you want this in PowerPoint or Google Slides format, or if you'd like citation links for each data point.
