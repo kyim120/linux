@@ -23,7 +23,6 @@ Welcome to the **NextGen Developers Internship Program**, where innovation meets
 | **Wed** | Supervised vs Unsupervised | KNN & Decision Trees | Mini project: Predict student scores |
 | **Thu** | Classification vs Regression | Logistic Regression | Build a resume screening model |
 | **Fri** | NLP Basics | Tokenization & Stopwords | Sentiment analysis on tweets |
-
 | **Week 2 – Mon** | Deep Learning intro | Neural networks with Keras | Build a digit recognizer (MNIST) |
 | **Tue** | CNNs & image classification | Data augmentation | Mini project: classify NGD logos |
 | **Wed** | AI Ethics & Bias | Model evaluation metrics | Write blog post on ethical AI |
@@ -41,7 +40,6 @@ Welcome to the **NextGen Developers Internship Program**, where innovation meets
 | **Wed** | Classes & Objects | Constructors/Destructors | Build a chatbot class |
 | **Thu** | Inheritance & Polymorphism | Virtual functions | Extend chatbot with emotion detection |
 | **Fri** | Templates & STL | Vectors, maps, sets | Mini project: NGD leaderboard system |
-
 | **Week 4 – Mon** | Exception handling | Smart pointers | Debugging workshop |
 | **Tue** | OOP Design Patterns | Singleton, Factory | Apply patterns to chatbot |
 | **Wed** | API integration in C++ | Simulate REST calls | Connect chatbot to ML model |
