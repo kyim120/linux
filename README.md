@@ -21,6 +21,7 @@ Interns will work **Monday to Friday**, **5 hours/day**, with weekends off. Each
 | **Thu** | Classification vs Regression | Logistic Regression | Build a resume screening model |
 | **Fri** | NLP Basics | Tokenization & Stopwords | Sentiment analysis on tweets |
 
+
 | **Mon (Week 2)** | Deep Learning intro | Neural networks with Keras | Build a digit recognizer (MNIST) |
 | **Tue** | CNNs & image classification | Data augmentation | Mini project: classify NGD logos |
 | **Wed** | AI Ethics & Bias | Model evaluation metrics | Write blog post on ethical AI |
@@ -38,6 +39,7 @@ Interns will work **Monday to Friday**, **5 hours/day**, with weekends off. Each
 | **Wed** | Classes & Objects | Constructors/Destructors | Build a chatbot class |
 | **Thu** | Inheritance & Polymorphism | Virtual functions | Extend chatbot with emotion detection |
 | **Fri** | Templates & STL | Vectors, maps, sets | Mini project: NGD leaderboard system |
+
 
 | **Mon (Week 4)** | Exception handling | Smart pointers | Debugging workshop |
 | **Tue** | OOP Design Patterns | Singleton, Factory | Apply patterns to chatbot |
