@@ -1,175 +1,140 @@
-📘 Direct and Indirect Speech (Easy Notes)
+📘 Active and Passive Voice (Easy Notes)
 
 1. Introduction
 
-When we report someone’s words, we can do it in two ways:
+In English, we can express a sentence in two ways:
 
-Direct Speech → using the speaker’s exact words.
+Active Voice → The subject does the action.
 
-Indirect Speech → reporting the meaning of the words, not the exact wording.
-
-
-
----
-
-2. Direct Speech
-
-In Direct Speech, we put the exact words of the speaker inside quotation marks (" ").
-
-A comma separates the reporting verb from the quoted words.
-
-
-Example:
-
-Ali said, “I am tired.”
-
-She asked, “Where are you going?”
+Passive Voice → The subject receives the action.
 
 
 
 ---
 
-3. Indirect Speech
+2. Active Voice
 
-In Indirect Speech, we report the speaker’s words without quotation marks.
+Focuses on who is doing the action.
 
-We often change the tense, pronouns, and words like this/that, now/then, today/yesterday.
-
-
-Example:
-
-Ali said that he was tired.
-
-She asked where I was going.
-
-
-
----
-
-4. Rules of Changing Direct to Indirect Speech
-
-(a) Changes in Pronouns
-
-First person (I, we) → changes according to the subject of reporting verb.
-
-Second person (you) → changes according to the object of reporting verb.
-
-Third person (he, she, they) → usually remains the same.
-
-
-Example:
-
-He said, “I am happy.” → He said that he was happy.
-
-
-
----
-
-(b) Changes in Tenses (when Reporting Verb is in Past)
-
-Present Simple → Past Simple
-
-Present Continuous → Past Continuous
-
-Present Perfect → Past Perfect
-
-Past Simple → Past Perfect
-
-Will/Shall → Would/Should
-
-
-Example:
-
-She said, “I eat apples.” → She said that she ate apples.
-
-He said, “I will go.” → He said that he would go.
-
-
-
----
-
-(c) Changes in Time and Place Words
-
-now → then
-
-today → that day
-
-tomorrow → the next day
-
-yesterday → the previous day
-
-here → there
-
-this → that
-
-these → those
-
-
-Example:
-
-He said, “I will go tomorrow.” → He said that he would go the next day.
-
-
-
----
-
-(d) For Questions
-
-No question mark in Indirect Speech.
-
-Use asked, inquired, wanted to know.
-
-Question form changes to normal sentence order (Subject + Verb).
+Structure: Subject + Verb + Object
 
 
 Examples:
 
-Direct: She asked, “Where are you going?”
+Ali writes a letter.
 
-Indirect: She asked where I was going.
-
-Direct: He said, “Do you like tea?”
-
-Indirect: He asked if I liked tea.
+The teacher teaches English.
 
 
 
 ---
 
-(e) For Commands/Requests
+3. Passive Voice
 
-Use told, ordered, requested, advised, asked + infinitive (to + verb).
+Focuses on the receiver of the action.
+
+Structure: Object + Be (is/was/has been etc.) + Past Participle + by + Subject
 
 
 Examples:
 
-Direct: He said, “Close the door.”
+A letter is written by Ali.
 
-Indirect: He told me to close the door.
-
-Direct: She said, “Please help me.”
-
-Indirect: She requested me to help her.
+English is taught by the teacher.
 
 
 
 ---
 
-5. Summary Table
+4. Rules of Changing Active into Passive
 
-Direct Speech	Indirect Speech
+(a) Identify the Object
 
-“I am happy.”	He said that he was happy.
-“I will call you tomorrow.”	He said that he would call me the next day.
-“Where are you going?”	She asked where I was going.
-“Open the window.”	He told me to open the window.
+The object of the active sentence becomes the subject in passive.
+
+
+Example:
+
+Active: She helps me.
+
+Passive: I am helped by her.
 
 
 
 ---
 
-✨️ Key Tip:
+(b) Use Correct Form of “Be” + Past Participle
 
-If Reporting Verb is in Present or Future → No tense change.
+Present Simple → am/is/are + V3
 
-If Reporting Verb is in Past → Change tense, pronouns, and time words.
+Past Simple → was/were + V3
+
+Future Simple → will be + V3
+
+Present Continuous → am/is/are being + V3
+
+Past Continuous → was/were being + V3
+
+Present Perfect → has/have been + V3
+
+Past Perfect → had been + V3
+
+Modal (can, should, must) → modal + be + V3
+
+
+
+---
+
+(c) Examples by Tense
+
+Tense	Active Voice	Passive Voice
+
+Present Simple	Ali writes a letter.	A letter is written by Ali.
+Past Simple	She cleaned the room.	The room was cleaned by her.
+Future Simple	He will buy a car.	A car will be bought by him.
+Present Continuous	They are playing cricket.	Cricket is being played by them.
+Past Continuous	She was reading a book.	A book was being read by her.
+Present Perfect	He has completed the work.	The work has been completed by him.
+Past Perfect	They had built a house.	A house had been built by them.
+Modal (can)	She can solve the problem.	The problem can be solved by her.
+
+
+
+---
+
+(d) When “By” is Not Used
+
+If the subject is unknown or not important, we often skip “by”.
+
+
+Examples:
+
+Active: Someone stole my bag.
+
+Passive: My bag was stolen.
+
+Active: People speak English worldwide.
+
+Passive: English is spoken worldwide.
+
+
+
+---
+
+5. Key Differences
+
+Active Voice	Passive Voice
+
+Focus on doer	Focus on receiver
+Short & direct	Longer & formal
+Common in daily use	Common in reports, news, formal writing
+
+
+
+---
+
+💫Quick Tip:
+
+Use Active Voice for clarity and energy.
+
+Use Passive Voice when the doer is unknown, unimportant, or obvious.
